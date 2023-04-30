@@ -2,7 +2,7 @@ class V1::ArticlesController < ApplicationController
 
   def index
     article = Article.all
-    article = article.find(1).title
+    article = article.find(1)
     render json: article
   end
 

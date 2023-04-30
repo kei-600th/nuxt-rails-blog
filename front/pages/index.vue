@@ -31,7 +31,7 @@
         await axios.get("/v1/articles")
         .then((res) => {
           this.articles.push({
-            title: res.data
+            title: res.data.title
           });
         }); 
       },
