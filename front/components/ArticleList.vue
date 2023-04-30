@@ -22,9 +22,6 @@ export default {
           sortable: false,
           value: "title"
         },
-        { text: "ユーザー名", 
-          value: "username"
-        }
       ]
     };
   }

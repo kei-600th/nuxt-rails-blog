@@ -7,7 +7,6 @@
         </v-col>
         <v-col cols="12" md="4">
           <v-btn @click="handleSubmit">作成</v-btn>
-          <v-btn @click="getApi()">取得</v-btn>
         </v-col>
       </v-row>
     </v-container>
