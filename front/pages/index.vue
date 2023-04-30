@@ -30,8 +30,11 @@
       async getArticle() {
         await axios.get("/v1/articles")
         .then((res) => {
-          this.articles.push({
-            title: res.data.title
+          const articlesData = res.data;
+          this.articles = articlesData.map((data) => {
+            return {
+              title: data.title
+            }
           });
         }); 
       },
