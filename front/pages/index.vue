@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddArticle @submit="addArticle" />
+    <AddArticle @submit="addArticle" @get="getArticle" />
     <ArticleList :articles="articles" />
   </div>
 </template>
@@ -26,6 +26,12 @@
         this.articles.push({
           title
         });
+      },
+      async getArticle() {
+        await axios.get("/v1/articles")
+        .then((res) => {
+          console.log(res)
+        }); 
       },
     },
   };
