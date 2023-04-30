@@ -29,6 +29,9 @@ export default {
     getApi() {
       this.$emit("get"); 
     }
+  },
+  mounted() {
+    this.getApi();
   }
 };
 </script>
