@@ -5,7 +5,11 @@
       <v-spacer></v-spacer>
       <v-text-field v-model="search" label="Search" single-line hide-details></v-text-field>
     </v-card-title>
-    <v-data-table :headers="headers" :items="articles" :search="search"></v-data-table>
+    <v-data-table :headers="headers" :items="articles" :search="search">
+        <template v-slot:[`item.title`]="{ item }">
+          <div @click="showArticle()">{{ item.title }}</div>
+        </template>
+    </v-data-table>
   </v-card>
 </template>
 
@@ -24,6 +28,11 @@ export default {
         },
       ]
     };
+  },
+  methods: {
+    showArticle() {
+      console.log("こんにちは")
+    },
   }
 };
 </script>
