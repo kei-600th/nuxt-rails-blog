@@ -7,14 +7,14 @@
     </v-card-title>
     <v-data-table :headers="headers" :items="articles" :search="search">
         <template v-slot:[`item.title`]="{ item }">
-          <div @click="showArticle(item)">{{ item.title }}</div>
+          <div @click="showArticle(item)">{{ item.record.title }}</div>
         </template>
     </v-data-table>
 
     <v-dialog v-model="showModal">
       <v-card>
-        <v-card-title>タイトル</v-card-title>
-        <v-card-text>本文</v-card-text>
+        <v-card-title>{{ selectedArticle }}</v-card-title>
+        <v-card-text>{{ selectedArticle }}</v-card-text>
       </v-card>
     </v-dialog>
 
@@ -43,6 +43,7 @@ export default {
     showArticle(article) {
       this.selectedArticle = article;
       this.showModal = true;
+      console.log(article);
     },
   }
 };

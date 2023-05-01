@@ -33,7 +33,7 @@
           const articlesData = res.data;
           this.articles = articlesData.map((data) => {
             return {
-              title: data.title
+              record: data
             }
           });
         }); 
