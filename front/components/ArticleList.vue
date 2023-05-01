@@ -13,8 +13,24 @@
 
     <v-dialog v-model="showModal">
       <v-card>
-        <v-card-title>{{ selectedArticleTitle }}</v-card-title>
-        <v-card-text>{{ selectedArticleContent }}</v-card-text>
+        <v-card-title>
+          <v-text-field
+            v-model="selectedArticleTitle"
+          ></v-text-field>
+        </v-card-title>
+        <v-card-text>
+          <v-textarea
+            v-model="selectedArticleContent"
+          ></v-textarea>
+        </v-card-text>
+        <v-card-actions>
+          <v-btn variant="outlined">
+            更新
+          </v-btn>
+          <v-btn variant="outlined">
+            破棄
+          </v-btn>
+        </v-card-actions>
       </v-card>
     </v-dialog>
 
