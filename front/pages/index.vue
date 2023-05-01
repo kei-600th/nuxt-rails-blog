@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AddArticle @submit="addArticle" @get="getArticle" />
+    <AddArticle @submit="addArticle"/>
     <ArticleList :articles="articles" />
   </div>
 </template>
@@ -36,6 +36,9 @@
           });
         }); 
       },
+    },
+    mounted() {
+      this.getArticle();
     },
   };
 

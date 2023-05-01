@@ -25,13 +25,7 @@ export default {
       this.$emit("submit", this.title); 
       this.title = "";
     },
-    getApi() {
-      this.$emit("get"); 
-    }
   },
-  mounted() {
-    this.getApi();
-  }
 };
 </script>
 
