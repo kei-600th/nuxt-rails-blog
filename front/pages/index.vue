@@ -23,9 +23,7 @@
     methods: {
       async addArticle(title) {
         await axios.post("/v1/articles", { title }); 
-        this.articles.push({
-          title
-        });
+        await this.getArticle(); 
       },
       async getArticle() {
         await axios.get("/v1/articles")
