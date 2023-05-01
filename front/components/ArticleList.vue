@@ -13,8 +13,8 @@
 
     <v-dialog v-model="showModal">
       <v-card>
-        <v-card-title>{{ selectedArticle }}</v-card-title>
-        <v-card-text>{{ selectedArticle }}</v-card-text>
+        <v-card-title>{{ selectedArticleTitle }}</v-card-title>
+        <v-card-text>{{ selectedArticleContent }}</v-card-text>
       </v-card>
     </v-dialog>
 
@@ -28,7 +28,8 @@ export default {
     return {
       search: "",
       showModal: false,
-      selectedArticle: null,
+      selectedArticleTitle: null,
+      selectedArticleContent: null,
       headers: [
         {
           text: "タイトル",
@@ -41,9 +42,9 @@ export default {
   },
   methods: {
     showArticle(article) {
-      this.selectedArticle = article;
+      this.selectedArticleTitle = article.record.title;
+      this.selectedArticleContent = article.record.content;
       this.showModal = true;
-      console.log(article);
     },
   }
 };
