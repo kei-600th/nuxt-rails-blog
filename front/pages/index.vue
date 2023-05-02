@@ -1,7 +1,7 @@
 <template>
   <div>
     <AddArticle @submit="addArticle"/>
-    <ArticleList :articles="articles" @upd="updArticle" />
+    <ArticleList :articles="articles" @upd="updArticle" @dlt="dltArticle" />
   </div>
 </template>
 
@@ -38,6 +38,10 @@
       },
       async updArticle(array) {
         await axios.patch(`/v1/articles/${array.id}`, { id: array.id, title:array.title, content:array.content} ); 
+        await this.getArticle(); 
+      },
+      async dltArticle(id) {
+        await axios.delete(`/v1/articles/${id}`, { id} ); 
         await this.getArticle(); 
       },
     },

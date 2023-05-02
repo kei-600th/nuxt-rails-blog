@@ -27,7 +27,7 @@
           <v-btn @click="updateSubmit" variant="outlined">
             更新
           </v-btn>
-          <v-btn variant="outlined">
+          <v-btn @click="deleteSubmit" variant="outlined">
             破棄
           </v-btn>
         </v-card-actions>
@@ -76,6 +76,11 @@ export default {
       this.updateList.title = this.selectedArticleTitle;
       this.updateList.content = this.selectedArticleContent;
       this.$emit("upd", this.updateList); 
+    },
+    deleteSubmit() {
+      this.updateList.id = this.selectedArticleId;
+      this.$emit("dlt", this.selectedArticleId); 
+      this.showModal = false;
     },
   }
 };
