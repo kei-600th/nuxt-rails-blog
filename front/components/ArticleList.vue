@@ -24,7 +24,7 @@
           ></v-textarea>
         </v-card-text>
         <v-card-actions>
-          <v-btn variant="outlined">
+          <v-btn @click="updateSubmit" variant="outlined">
             更新
           </v-btn>
           <v-btn variant="outlined">
@@ -44,8 +44,16 @@ export default {
     return {
       search: "",
       showModal: false,
+      selectedArticleId: null,
       selectedArticleTitle: null,
       selectedArticleContent: null,
+      updateList: [
+        {
+          id: null,
+          title: "",
+          content: "",
+        },
+      ],
       headers: [
         {
           text: "タイトル",
@@ -58,9 +66,16 @@ export default {
   },
   methods: {
     showArticle(article) {
+      this.selectedArticleId = article.record.id;
       this.selectedArticleTitle = article.record.title;
       this.selectedArticleContent = article.record.content;
       this.showModal = true;
+    },
+    updateSubmit() {
+      this.updateList.id = this.selectedArticleId;
+      this.updateList.title = this.selectedArticleTitle;
+      this.updateList.content = this.selectedArticleContent;
+      this.$emit("upd", this.updateList); 
     },
   }
 };

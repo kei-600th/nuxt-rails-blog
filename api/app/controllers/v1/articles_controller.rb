@@ -6,6 +6,7 @@ class V1::ArticlesController < ApplicationController
   end
 
   def create
+    puts params
     article = Article.new(article_params)
     article.content = "defaultdate"
     if article.save
@@ -13,6 +14,12 @@ class V1::ArticlesController < ApplicationController
     else
       render json: article.errors
     end
+  end
+
+  def update
+    article = Article.find(params[:id])
+    article.update(article_params)
+    render json: article
   end
 
   def destroy
